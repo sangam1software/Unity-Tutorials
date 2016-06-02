@@ -1,3 +1,6 @@
+//Code written using Visual Studios for Unity 5
+//Watch the full tutorial at https://youtu.be/zPxmhMXS-pE starting June 8th, 2016
+
 using UnityEngine;
 using System.Collections;
 
