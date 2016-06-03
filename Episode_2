@@ -1,0 +1,30 @@
+//Code written using Visual Studios for Unity 5
+//Watch the full tutorial at  starting June 8th, 2016
+//This is the new way of changing Scenes in Unity 5
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
+public class SceneChanger : MonoBehaviour
+{
+
+    float currentTime;
+
+    // Use this for initialization
+    void Start()
+    {
+        currentTime = 0f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        currentTime += Time.deltaTime;
+        Debug.LogWarning(currentTime + SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name == "One" && currentTime >= 5f)
+            SceneManager.LoadScene("Two");
+        if (SceneManager.GetActiveScene().name == "Two" && currentTime >= 5f)
+            SceneManager.LoadScene("One");
+    }
+}
