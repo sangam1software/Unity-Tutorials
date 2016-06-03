@@ -1,0 +1,42 @@
+//Code written using Visual Studios for Unity 5
+//Watch the full tutorial at https://www.youtube.com/watch?v=ibPCtXm0CHw starting June 8th, 2016
+//Changed for Episode 3
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
+public class SceneChanger : MonoBehaviour
+{
+
+    float currentTime;
+
+    // Use this for initialization
+    void Start()
+    {
+        currentTime = 0f;
+        Debug.LogError("Hi " + StaticVaribles.PlayerName);
+        if(StaticVaribles.PlayerName == " ")
+        {
+            StaticVaribles.PlayerName = "BOBBBBBBBBBBB";
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        currentTime += Time.deltaTime;
+        Debug.LogWarning(currentTime + SceneManager.GetActiveScene().name + " " + StaticVaribles.count);
+        if (SceneManager.GetActiveScene().name == "One" && currentTime >= 2f)
+        {
+            StaticVaribles.count++;
+            SceneManager.LoadScene("Two");
+        }
+        if (SceneManager.GetActiveScene().name == "Two" && currentTime >= 2f)
+        {
+            StaticVaribles.count++;
+            SceneManager.LoadScene("One");
+        }
+
+    }
+}
