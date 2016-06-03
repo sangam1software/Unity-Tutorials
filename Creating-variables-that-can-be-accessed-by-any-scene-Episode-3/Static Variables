@@ -1,0 +1,14 @@
+//Code written using Visual Studios for Unity 5
+//Watch the full tutorial at  starting June 11th, 2016
+
+
+using UnityEngine;
+using System.Collections;
+
+public class StaticVaribles : MonoBehaviour {
+
+    public static int count = 0;
+
+    public static string PlayerName = " ";
+
+}
