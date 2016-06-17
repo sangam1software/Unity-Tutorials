@@ -1,1 +1,63 @@
 //Create a new C# script file in unity named mainLoading and copy and paste this code into it.
+
+using UnityEngine;
+using System.Collections;
+
+public class mainLoading : MonoBehaviour{ 
+
+    string version = "Version 1.0.0.0";
+    bool checkVersion;
+    bool readyLoaded;
+    bool loadData;
+    int[] a;
+    float progress;
+
+	// Use this for initialization
+    // Set any variables / get data
+	void Start () {
+        checkVersion = true;
+        loadData = true;
+        readyLoaded = false;
+        a = new int[5];
+        for(int i = 0; i < 5; i++)
+        {
+            a[i] = 0;
+       } 
+	}
+	
+    // Any code that needs to be run goes here!
+	// Update is called once per frame
+	void Update () {
+        if (!checkVersion && a[0] == 0)
+        {
+            a[0] = 1;
+            loadData = true;
+            //Check Version Here
+        }
+        if (!loadData && a[1] == 0)
+        {
+            a[1] = 1;
+        }
+        loadingBarManager.percentLoaded++; //testing purposes only!
+  	}
+
+    //Any changes to GUI go here!
+    void OnGUI()
+    {
+        GUI.backgroundColor = Color.clear;
+        GUI.contentColor = Color.black;
+        GUI.TextArea(new Rect(Screen.width - 100, Screen.height - 20, 200, 300), version);
+        Debug.LogWarning("Ready");
+        if (!checkVersion && a[0] == 0)
+        {
+            a[0] = 1;
+            loadData = true;
+            //Check Version Here
+        }
+        if (loadData && a[1] == 0)
+        {
+            a[1] = 1;
+        }
+
+    }
+}
